@@ -1,0 +1,4 @@
+@if (ViewBag.Mensaje != null)
+{
+    <div class="msg @(((string)ViewBag.Mensaje).StartsWith("Error") ? "err" : "")">@ViewBag.Mensaje</div>
+}

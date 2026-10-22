@@ -1,0 +1,11 @@
+@model List<POOI_EF.Models.EmpleadoPedidos>
+@{ ViewBag.Title = "Pedidos por empleado"; }
+<h2>Pedidos por empleado - año @ViewBag.Anio</h2>
+<form method="get"><label>Año</label><input type="number" name="anio" value="@ViewBag.Anio" style="width:120px" /> <button class="btn" type="submit">Consultar</button></form>
+@if (Model.Count == 0) { <p>No hay registros</p> }
+else
+{
+    <table><tr><th>Código</th><th>Empleado</th><th>Cantidad de pedidos</th></tr>
+    @foreach (var e in Model) { <tr><td>@e.idempleado</td><td>@e.nombre</td><td>@e.cantidad</td></tr> }
+    </table>
+}

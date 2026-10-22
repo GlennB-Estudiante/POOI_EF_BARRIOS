@@ -1,0 +1,26 @@
+@model List<POOI_EF.Models.Consumidor>
+@{ ViewBag.Title = "Consumidores"; }
+<h2>Consumidores</h2>
+@Html.Partial("_Mensaje")
+<p><a class="btn" href="@Url.Action("Create")">Nuevo consumidor</a></p>
+@if (Model == null || Model.Count == 0)
+{
+    <label>No hay registros</label>
+}
+else
+{
+    <table>
+        <tr><th>DNI</th><th>Nombres</th><th>Apellidos</th><th>Email</th><th>País</th><th></th></tr>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@c.dnicont</td><td>@c.nomcont</td><td>@c.apecont</td><td>@c.emailcont</td><td>@c.idpais</td>
+                <td>
+                    <a class="btn gray" href="@Url.Action("Details", new { id = c.dnicont })">Detalle</a>
+                    <a class="btn" href="@Url.Action("Update", new { id = c.dnicont })">Editar</a>
+                    <a class="btn red" href="@Url.Action("Delete", new { id = c.dnicont })" onclick="return confirm('¿Eliminar este consumidor?');">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </table>
+}

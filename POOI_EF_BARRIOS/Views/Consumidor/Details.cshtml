@@ -1,0 +1,12 @@
+@model POOI_EF.Models.Consumidor
+@{ ViewBag.Title = "Detalle"; }
+<h2>Detalle del consumidor</h2>
+@Html.Partial("_Mensaje")
+<table>
+    <tr><th>DNI</th><td>@Model.dnicont</td></tr>
+    <tr><th>Nombres</th><td>@Model.nomcont</td></tr>
+    <tr><th>Apellidos</th><td>@Model.apecont</td></tr>
+    <tr><th>Email</th><td>@Model.emailcont</td></tr>
+    <tr><th>País</th><td>@Model.idpais</td></tr>
+</table>
+<p><a class="btn gray" href="@Url.Action("Index")">Volver</a></p>

@@ -1,0 +1,13 @@
+@model POOI_EF.Models.Consumidor
+@{ ViewBag.Title = "Actualizar"; }
+<h2>Actualizar consumidor</h2>
+@Html.Partial("_Mensaje")
+@using (Html.BeginForm())
+{
+    <label>DNI</label><input name="dnicont" value="@Model.dnicont" readonly />
+    <label>Nombres</label><input name="nomcont" value="@Model.nomcont" maxlength="40" />
+    <label>Apellidos</label><input name="apecont" value="@Model.apecont" maxlength="40" />
+    <label>Email</label><input name="emailcont" type="email" value="@Model.emailcont" maxlength="250" />
+    <label>País</label>@Html.DropDownList("idpais", (SelectList)ViewBag.Paises)
+    <p><button class="btn" type="submit">Guardar</button> <a class="btn gray" href="@Url.Action("Index")">Cancelar</a></p>
+}
